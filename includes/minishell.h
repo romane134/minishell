@@ -6,7 +6,7 @@
 /*   By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 14:43:57 by rlucas-d          #+#    #+#             */
-/*   Updated: 2019/02/18 13:54:23 by rlucas-d         ###   ########.fr       */
+/*   Updated: 2019/02/20 15:28:09 by rlucas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,47 @@
 #include "../libft/includes/libft.h"
 #include <sys/wait.h>
 #include <unistd.h>
-#include "../../gnl/get_next_line.h"
+#include <signal.h>
+#include <stdio.h>
+#include <fcntl.h>
 
 
 typedef				void (*sig_t)(int);
+
+typedef struct s_msh	t_msh;
+struct				s_msh
+{
+	char		*line;
+	char		**argm;
+	char		**path;
+	char		*pwd;
+	char		**env;
+	char		*home_path;
+};
 
 /*
 **  minishell.c
 */
 void				ft_sig(int i);
-void				prompt(int i);
+void				prompt(int i, char *pwd);
 
 /*
 **  msh_message.c
 */
-void				msh_message(char *line, char **argv);
+void				msh_message(t_msh *msh, char *line);
 
 /*
 ** msh_echo.
 */
 
 void				msh_echo(char *line);
+char				*rm_quotes(char *line);
+void				msh_env(t_msh msh);
+/*
+** msh_get_env.c
+*/
+void				get_env(t_msh *msh);
+void				create_env(char **env, t_msh *msh);
+
+void				msh_cd(char **argv, t_msh *msh);
 #endif

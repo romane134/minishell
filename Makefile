@@ -6,14 +6,14 @@
 #    By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 14:25:35 by rlucas-d          #+#    #+#              #
-#    Updated: 2019/02/18 13:54:44 by rlucas-d         ###   ########.fr        #
+#    Updated: 2019/02/20 14:40:21 by rlucas-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 .PHONY: fclean all
 NAME	= minishell
 
-SRC		= minishell.c msh_message.c msh_echo.c
+SRC		= minishell.c msh_message.c msh_echo.c msh_get_env.c msh_cd.c
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 CC		= gcc
@@ -42,7 +42,7 @@ $(FT_LIB):
 		@make -C $(FT)
 
 $(NAME): $(OBJ)
-		@$(CC) $(OBJ)  $(FT_LNK) -lm -o $(NAME) #-fsanitize=address
+		@$(CC) $(OBJ)  $(FT_LNK) -lm -o $(NAME)
 clean:
 		@rm -rf $(OBJDIR)
 		@make -C $(FT) clean
