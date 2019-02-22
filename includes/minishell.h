@@ -6,7 +6,7 @@
 /*   By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 14:43:57 by rlucas-d          #+#    #+#             */
-/*   Updated: 2019/02/20 15:28:09 by rlucas-d         ###   ########.fr       */
+/*   Updated: 2019/02/22 10:52:15 by rlucas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,10 @@ void				get_env(t_msh *msh);
 void				create_env(char **env, t_msh *msh);
 
 void				msh_cd(char **argv, t_msh *msh);
+
+
+
+void				set_env_var(char *key, t_msh *msh, char *value);
+int					find_env_var(char *var, t_msh msh);
+char				**realloc_env(int new_size, t_msh msh);
 #endif

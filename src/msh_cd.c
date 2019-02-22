@@ -6,7 +6,7 @@
 /*   By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 14:15:38 by rlucas-d          #+#    #+#             */
-/*   Updated: 2019/02/20 15:28:04 by rlucas-d         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:00:00 by rlucas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,30 @@
 void				msh_cd(char **argv, t_msh *msh)
 {
 	char	*path;
-	char	*old_path;
+	char	*cwd;
+	char	buff[4097];
 
-	old_path = msh->home_path;
-	if (argv[1])
+	cwd = getcwd(buff, 4096);
+	path = argv[1];
+	if (!chdir(path))
 	{
-		path = argv[1];
-		if (chdir(path) == -1)
-			st_printf("Error: Can't change dir\n");
+		if (cwd[1] == '/')
+			set_env_var("PWD", msh, cwd);
 		else
 		{
-			prompt (0, path);
-			old_path = ft_strjoin(old_path, "/");
-			(*msh).home_path = ft_strjoin(old_path, path);
+			cwd = getcwd(buff, 4096);
+			set_env_var("PWD", msh, cwd);
 		}
+	}
+	else
+	{
+		ft_putstr("cd: ");
+		if (access(path, F_OK) == -1)
+			st_printf("no such file or directory: ");
+		else if (access(path, R_OK) == -1)
+			st_printf("permission denied: ");
+		else
+			st_printf("not a directory: ");
+		ft_putendl(path);
 	}
 }

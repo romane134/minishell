@@ -6,7 +6,7 @@
 /*   By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 18:44:49 by rlucas-d          #+#    #+#             */
-/*   Updated: 2019/02/20 15:28:20 by rlucas-d         ###   ########.fr       */
+/*   Updated: 2019/02/22 13:13:09 by rlucas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void			msh_message(t_msh *msh, char *line)
 	if ((ft_strequ((*msh).argm[0], "echo") == 1))
 		msh_echo(line);
 	else if ((ft_strequ((*msh).argm[0], "ls") == 1))
-		st_printf ("sdfsdf\n");
-	if ((ft_strequ((*msh).argm[0], "cd") == 1))
+		execve("/bin/pwd", msh->argm , NULL);
+	else if ((ft_strequ((*msh).argm[0], "cd") == 1))
 		msh_cd((*msh).argm, msh);
 	else if ((ft_strequ((*msh).argm[0], "env") == 1))
 		msh_env((*msh));
