@@ -6,7 +6,7 @@
 #    By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/11 14:25:35 by rlucas-d          #+#    #+#              #
-#    Updated: 2019/02/22 10:52:40 by rlucas-d         ###   ########.fr        #
+#    Updated: 2019/03/04 16:58:39 by rlucas-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 NAME	= minishell
 
 SRC		= minishell.c msh_message.c msh_echo.c msh_get_env.c msh_cd.c \
-		  msh_env_var.c
+		  msh_env_var.c bulletin.c msh_setenv.c msh_unsetenv.c
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 CC		= gcc

@@ -6,7 +6,7 @@
 /*   By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 14:47:40 by rlucas-d          #+#    #+#             */
-/*   Updated: 2019/02/22 15:00:11 by rlucas-d         ###   ########.fr       */
+/*   Updated: 2019/03/04 12:55:33 by rlucas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void		ft_sig(int i)
 void		prompt(int i, char *pwd)
 {
 	if (i == 2)
-		st_printf("\n");
-	st_printf("%s$>", pwd);
+		st_printf("\nrlucas-d/minishell$>");
+	else
+		st_printf("%s$>", pwd);
 }
 
 int			main(int argc, char **argv, char **env)
@@ -32,7 +33,7 @@ int			main(int argc, char **argv, char **env)
 	int i;
 
 	i = 0;
-	//signal(SIGINT, ft_sig);
+	signal(SIGINT, ft_sig);
 	create_env(env, &msh);
 	if (argc == 1 && argv)
 		while (1)

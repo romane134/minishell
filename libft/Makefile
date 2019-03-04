@@ -6,7 +6,7 @@
 #    By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/05 01:36:09 by rlucas-d          #+#    #+#              #
-#    Updated: 2019/02/12 14:41:07 by rlucas-d         ###   ########.fr        #
+#    Updated: 2019/02/28 11:53:50 by rlucas-d         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ ft_isascii.c ft_memdel.c ft_putstr.c ft_strequ.c ft_strnstr.c ft_isdigit.c \
 ft_memmove.c ft_putstr_fd.c ft_strjoin.c ft_striteri.c ft_striter.c \
 ft_strmap.c ft_strmapi.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
 ft_lstadd.c ft_lstiter.c ft_lstiter.c ft_lstmap.c ft_count_letter.c \
-ft_abs.c ft_count.c ft_space.c nt_printf.c print_bits.c get_next_line.c
+ft_abs.c ft_count.c ft_space.c nt_printf.c print_bits.c get_next_line.c \
+
 OBJ = $(SRC_LIB:%.c=%.o)
 
 FLAG = -Wall -Wextra -Werror 

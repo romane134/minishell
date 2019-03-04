@@ -6,7 +6,7 @@
 /*   By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/03 08:53:55 by rlucas-d          #+#    #+#             */
-/*   Updated: 2019/02/12 14:41:51 by rlucas-d         ###   ########.fr       */
+/*   Updated: 2019/02/28 11:51:56 by rlucas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,5 @@ char			*ft_strmap(char const *s, char (*f)(char));
 char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 int				st_printf(const char *restrict format, ...);
+int				st_printf_error(const char *restrict format, ...);
 #endif
