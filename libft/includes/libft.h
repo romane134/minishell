@@ -102,4 +102,5 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 
 int				st_printf(const char *restrict format, ...);
 int				st_printf_error(const char *restrict format, ...);
+char            **ft_mshstrsplit(char const *s, char c);
 #endif

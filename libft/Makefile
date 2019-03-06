@@ -24,6 +24,7 @@ ft_memmove.c ft_putstr_fd.c ft_strjoin.c ft_striteri.c ft_striter.c \
 ft_strmap.c ft_strmapi.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
 ft_lstadd.c ft_lstiter.c ft_lstiter.c ft_lstmap.c ft_count_letter.c \
 ft_abs.c ft_count.c ft_space.c nt_printf.c print_bits.c get_next_line.c \
+ft_mshsplit.c
 
 OBJ = $(SRC_LIB:%.c=%.o)
 

@@ -6,7 +6,7 @@
 /*   By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/20 14:15:38 by rlucas-d          #+#    #+#             */
-/*   Updated: 2019/03/04 13:49:40 by rlucas-d         ###   ########.fr       */
+/*   Updated: 2019/03/06 18:14:50 by rlucas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void				msh_cd(char **argv, t_msh *msh)
 
 	cwd = getcwd(buff, 4096);
 	path = argv[1];
+	if (argv[1][0] == '~')
+		path = "/Users/rlucas-d/";
 	if (!chdir(path))
 	{
 		if (cwd[1] == '/')
@@ -39,6 +41,6 @@ void				msh_cd(char **argv, t_msh *msh)
 			st_printf("permission denied: ");
 		else
 			st_printf("not a directory: ");
-		ft_putendl(path);
+		ft_putendl(argv[1]);
 	}
 }

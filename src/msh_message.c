@@ -6,7 +6,7 @@
 /*   By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 18:44:49 by rlucas-d          #+#    #+#             */
-/*   Updated: 2019/03/04 17:03:07 by rlucas-d         ###   ########.fr       */
+/*   Updated: 2019/03/06 15:03:40 by rlucas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void			msh_message(t_msh *msh, char *line)
 	int			i;
 	char		**tmp;
 
-	i = 0;
+	i = 1;
 	if (ft_strequ(line, "\0") == 1)
 		return ;
 	if ((ft_strequ((*msh).argm[0], "echo") == 1))
@@ -78,9 +78,7 @@ void			msh_message(t_msh *msh, char *line)
 			st_printf("unsetenv: Too few arguments.\n");
 		while ((*msh).argm[i])
 		{
-			tmp = msh_unsetenv(msh->argm[i], (*msh));
-			free ((*msh).env);
-			msh->env = tmp;
+			msh->env = msh_unsetenv(msh->argm[i], (*msh));
 			i++;
 		}
 	}

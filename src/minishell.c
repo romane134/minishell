@@ -6,10 +6,12 @@
 /*   By: rlucas-d <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 14:47:40 by rlucas-d          #+#    #+#             */
-/*   Updated: 2019/03/04 12:55:33 by rlucas-d         ###   ########.fr       */
+/*   Updated: 2019/03/06 18:11:04 by rlucas-d         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+/* faire la ~ ? !!!!!!!!!!!!!!!!!! */
 #include "../includes/minishell.h"
 
 void		ft_sig(int i)
@@ -44,7 +46,8 @@ int			main(int argc, char **argv, char **env)
 				break ;
 			if ((ft_strcmp(msh.line, "exit") == 0))
 				break ;
-			msh.argm = ft_strsplit(msh.line, ' ');
+			msh.line = ft_strtrim(msh.line);
+			msh.argm = ft_mshstrsplit(msh.line, ' ');
 			msh_message(&msh, msh.line);
 			free(msh.line);
 		}
